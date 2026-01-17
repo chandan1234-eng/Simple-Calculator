@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claculator</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(51, 50, 50);
+    }
+    .container {
+      border: 1px solid black;
+      width: 270px;
+      height: 350px;
+      padding: 15px;
+      border-radius: 30px;
+      background-color: rgb(148, 135, 120);
+    }
+
+    .output input {
+      height: 50px;
+      width: 100%;
+      border-radius: 20px;
+      border: none;
+      font-size: 30px;
+    }
+
+    .output {
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .buttons button {
+      height: 40px;
+      border-radius: 40px;
+      border: none;
+      font-size: 30px;
+
+      transition: transform 0.1s linear;
+    }
+
+    .buttons button:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="output">
+        <input id="output" type="text" name="output" placeholder="0" />
+      </div>
+      <div class="buttons">
+        <button onclick="append('1')">1</button>
+        <button onclick="append('2')">2</button>
+        <button onclick="append('3')">3</button>
+        <button onclick="append('4')">4</button>
+        <button onclick="append('6')">6</button>
+        <button onclick="append('7')">7</button>
+        <button onclick="append('8')">8</button>
+        <button onclick="append('9')">9</button>
+        <button onclick="append('0')">0</button>
+        <button onclick="append('*')">*</button>
+        <button onclick="append('/')">/</button>
+        <button onclick="append('+')">+</button>
+        <button onclick="append('-')">-</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="allClear()">C</button>
+      </div>
+    </div>
+    <script>
+      const output = document.getElementById("output");
+      function append(value) {
+        output.value += value;
+      }
+
+      function calculate() {
+        output.value = eval(output.value);
+      }
+      function allClear() {
+        output.value = " ";
+      }
+    </script>
+  </body>
+</html>
